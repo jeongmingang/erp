@@ -2,17 +2,17 @@ package erp;
 
 import java.awt.EventQueue;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import erp.ui.DepartmentManager;
-import erp.ui.TitleManager;
-
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import erp.ui.DepartmentManagerUI;
+import erp.ui.EmployeeManagerUI;
+import erp.ui.TitleManagerUI;
 
 @SuppressWarnings("serial")
 public class Main extends JFrame implements ActionListener {
@@ -20,6 +20,7 @@ public class Main extends JFrame implements ActionListener {
 	private JPanel contentPane;
 	private JButton btnTitle;
 	private JButton btnDeprtment;
+	private JButton btnEmployee;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -53,11 +54,15 @@ public class Main extends JFrame implements ActionListener {
 		btnDeprtment.addActionListener(this);
 		contentPane.add(btnDeprtment);
 		
-		JButton btnEmployee = new JButton("사원 관리");
+		btnEmployee = new JButton("사원 관리");
+		btnEmployee.addActionListener(this);
 		contentPane.add(btnEmployee);
 	}
 
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnEmployee) {
+			actionPerformedBtnEmployee(e);
+		}
 		if (e.getSource() == btnDeprtment) {
 			actionPerformedBtnDeprtment(e);
 		}
@@ -66,11 +71,16 @@ public class Main extends JFrame implements ActionListener {
 		}
 	}
 	protected void actionPerformedBtnTitle(ActionEvent e) {
-		TitleManager frame = new TitleManager();
+		TitleManagerUI frame = new TitleManagerUI();
+		frame.setTitle("직책 관리");
 		frame.setVisible(true);
 	}
 	protected void actionPerformedBtnDeprtment(ActionEvent e) {
-		DepartmentManager frame = new DepartmentManager();
+		DepartmentManagerUI frame = new DepartmentManagerUI();
+		frame.setVisible(true);
+	}
+	protected void actionPerformedBtnEmployee(ActionEvent e) {
+		EmployeeManagerUI frame = new EmployeeManagerUI();
 		frame.setVisible(true);
 	}
 }
