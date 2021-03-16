@@ -1,16 +1,12 @@
 package erp.ui;
 
-import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import erp.dto.Employee;
-import erp.dto.EmployeeDetail;
 import erp.service.EmployeeService;
 import erp.ui.content.AbstractContentPanel;
-import erp.ui.content.EmployeeDatailPanel;
 import erp.ui.content.EmployeePanel;
 import erp.ui.list.AbstractCustomTablePanel;
 import erp.ui.list.EmployeeTablePanel;
