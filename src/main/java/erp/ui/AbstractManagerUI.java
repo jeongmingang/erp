@@ -32,7 +32,7 @@ public abstract class AbstractManagerUI<T> extends JFrame implements ActionListe
 		
 		initialize();
 		
-		tableLoadData(); //component
+		tableLoadData(); //component load data
 	}
 
 	private void initialize() {
