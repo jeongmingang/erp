@@ -1,7 +1,7 @@
 {
 	"folders": {},
 	"connections": {
-		"mysql5-17823d565ad-7981397d0b456c9a": {
+		"mysql5-17833b037a8-42f9ef6a325b32e1": {
 			"provider": "mysql",
 			"driver": "mysql5",
 			"name": "localhost(root)",
@@ -14,10 +14,11 @@
 				"url": "jdbc:mysql://localhost:3306/",
 				"home": "C:\\Program Files\\MySQL\\MySQL Server 5.7",
 				"type": "dev",
-				"auth-model": "native"
+				"auth-model": "native",
+				"handlers": {}
 			}
 		},
-		"mysql5-17823e93d7f-4b806d7558816515": {
+		"mysql5-17833b1c560-5a84f1be35322e5b": {
 			"provider": "mysql",
 			"driver": "mysql5",
 			"name": "erp(user_erp)",
@@ -27,8 +28,7 @@
 			"configuration": {
 				"host": "localhost",
 				"port": "3306",
-				"database": "erp",
-				"url": "jdbc:mysql://localhost:3306/erp",
+				"url": "jdbc:mysql://localhost:3306/",
 				"home": "C:\\Program Files\\MySQL\\MySQL Server 5.7",
 				"type": "dev",
 				"auth-model": "native",
