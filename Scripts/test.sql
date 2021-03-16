@@ -65,6 +65,8 @@ select e.empno
 select empno, empname, title_no, title_name, manager_no, manager_name, salary, deptNo, deptName, floor 
 from vw_full_employee;
 
+drop view vw_full_employee;
+
 select empno, empname, title as title_no,
 manager as manager_no, salary, dept as deptNo 
 from employee
@@ -97,3 +99,27 @@ select empname, empno, deptno
 select tname, count(*) as 사원수
   from title t left join employee e on t.tno = e.title 
  group by tno;
+ 
+-- pass 길이 확인
+-- 단반향 함수(Hash:MDS)
+select password('asdaafsdafdaf'), length(password('asdaafsdafdaf')) from dual;
+
+select password('1234'); 
+
+-- emp_detail insert
+INSERT INTO erp.emp_detail (empno, pic, gender, hiredate, pass)
+VALUES(?, ?, ?, ?, ?);
+
+delete from emp_detail where empno = 1003;
+
+select empno, pic, gender, hiredate, pass from emp_detail where empno = 1003;
+
+-- emp_detail update
+UPDATE erp.emp_detail
+SET pic = ?, gender = ?, hiredate = ?, pass = ?
+WHERE empno = ?;
+
+select * from emp_detail;
+
+
+
