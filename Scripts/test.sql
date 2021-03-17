@@ -120,6 +120,7 @@ SET pic = ?, gender = ?, hiredate = ?, pass = ?
 WHERE empno = ?;
 
 select * from emp_detail;
+select * from employee;
 
 
 
