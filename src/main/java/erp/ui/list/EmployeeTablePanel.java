@@ -4,6 +4,7 @@ import javax.swing.SwingConstants;
 
 import erp.dto.Employee;
 import erp.service.EmployeeService;
+import erp.ui.exception.NotSelectedException;
 
 @SuppressWarnings("serial")
 public class EmployeeTablePanel extends AbstractCustomTablePanel<Employee> {
@@ -43,6 +44,17 @@ public class EmployeeTablePanel extends AbstractCustomTablePanel<Employee> {
 
 	public void setService(EmployeeService service) {
 		this.service = service;
+	}
+
+	@Override
+	public Employee getItem() {
+		int row = table.getSelectedRow();
+		int empNo = (int) table.getValueAt(row, 0);
+		
+		if (row == -1) {
+			throw new NotSelectedException();
+		}
+		return list.get(list.indexOf(new Employee(empNo)));
 	}
 	
 }
