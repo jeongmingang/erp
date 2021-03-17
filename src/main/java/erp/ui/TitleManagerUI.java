@@ -16,6 +16,8 @@ import erp.ui.list.TitleTablePanel;
 
 @SuppressWarnings("serial")
 public class TitleManagerUI extends AbstractManagerUI<Title> {
+	public TitleManagerUI() {
+	}
 	private TitleService service;
 	
 	@Override

@@ -23,8 +23,4 @@ public class EmployeeDetailService {
 	public void removeEmployeeDetail(Employee employee) {
 		empDetailDao.deleteEmployeeDetail(employee);
 	}
-	
-//	public void showEmpDetailByEmpNo(Employee employee) {
-//		empDetailDao.selectEmployeeDetailByNo(employee);
-//	}
 }
