@@ -18,6 +18,10 @@ import erp.ui.list.DepartmentTablePanel;
 public class DepartmentManagerUI extends AbstractManagerUI<Department> {
 	private DeptService service;
 
+	public DepartmentManagerUI() {
+		empListByTitleItem.setText(AbstractManagerUI.DEPT_MENU);
+	}
+
 	@Override
 	protected void setService() {
 		service = new DeptService();

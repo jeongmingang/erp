@@ -16,9 +16,11 @@ import erp.ui.list.TitleTablePanel;
 
 @SuppressWarnings("serial")
 public class TitleManagerUI extends AbstractManagerUI<Title> {
-	public TitleManagerUI() {
-	}
 	private TitleService service;
+	
+	public TitleManagerUI() {
+		empListByTitleItem.setText(AbstractManagerUI.TITLE_MENU);
+	}
 	
 	@Override
 	protected void setService() {

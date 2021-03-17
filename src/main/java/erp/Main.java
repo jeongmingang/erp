@@ -21,6 +21,9 @@ public class Main extends JFrame implements ActionListener {
 	private JButton btnTitle;
 	private JButton btnDeprtment;
 	private JButton btnEmployee;
+	private TitleManagerUI titleFrame;
+	private DepartmentManagerUI deptFrame;
+	private EmployeeManagerUI empFrame;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -36,7 +39,20 @@ public class Main extends JFrame implements ActionListener {
 	}
 
 	public Main() {
+		createFrame();
+		
 		initialize();
+	}
+
+	public void createFrame() {
+		titleFrame = new TitleManagerUI();
+		titleFrame.setTitle("직책 관리");
+		
+		deptFrame = new DepartmentManagerUI();
+		deptFrame.setTitle("부서 관리");
+		
+		empFrame = new EmployeeManagerUI();
+		empFrame.setTitle("사원 관리");
 	}
 	private void initialize() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -71,16 +87,12 @@ public class Main extends JFrame implements ActionListener {
 		}
 	}
 	protected void actionPerformedBtnTitle(ActionEvent e) {
-		TitleManagerUI frame = new TitleManagerUI();
-		frame.setTitle("직책 관리");
-		frame.setVisible(true);
+		titleFrame.setVisible(true);
 	}
 	protected void actionPerformedBtnDeprtment(ActionEvent e) {
-		DepartmentManagerUI frame = new DepartmentManagerUI();
-		frame.setVisible(true);
+		deptFrame.setVisible(true);
 	}
 	protected void actionPerformedBtnEmployee(ActionEvent e) {
-		EmployeeManagerUI frame = new EmployeeManagerUI();
-		frame.setVisible(true);
+		empFrame.setVisible(true);
 	}
 }

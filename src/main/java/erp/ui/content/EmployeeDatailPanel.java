@@ -65,11 +65,11 @@ public class EmployeeDatailPanel extends AbstractContentPanel<EmployeeDetail> im
 	private void loadPic(String imgFilePath) {
 		Image changeImage = null;
 		if (imgFilePath == null) {
-			ImageIcon icon = new ImageIcon(imgPath + "noImg.jpg");
-			changeImage = icon.getImage().getScaledInstance(100, 150, Image.SCALE_SMOOTH);
+				ImageIcon icon = new ImageIcon(imgPath + "noImg.jpg");
+				changeImage = icon.getImage().getScaledInstance(100, 150, Image.SCALE_SMOOTH);
 		}else {
-			ImageIcon icon = new ImageIcon(imgFilePath);
-			changeImage = icon.getImage().getScaledInstance(100, 150, Image.SCALE_SMOOTH);
+				ImageIcon icon = new ImageIcon(imgFilePath);
+				changeImage = icon.getImage().getScaledInstance(100, 150, Image.SCALE_SMOOTH);
 		}
 		ImageIcon changeIcon = new ImageIcon(changeImage);
 		lblPic.setIcon(changeIcon);
@@ -139,6 +139,7 @@ public class EmployeeDatailPanel extends AbstractContentPanel<EmployeeDetail> im
 		pContent.add(lblPass1);
 		
 		pfPass1 = new JPasswordField();
+		pfPass1.getDocument().addDocumentListener(listener);
 		pContent.add(pfPass1);
 		
 		JLabel lblPass2 = new JLabel("비밀번호 확인");
@@ -152,7 +153,7 @@ public class EmployeeDatailPanel extends AbstractContentPanel<EmployeeDetail> im
 		JPanel pSpace = new JPanel();
 		pContent.add(pSpace);
 		
-		lblPassConfirm = new JLabel("비밀번호를 입력하세요.");
+		lblPassConfirm = new JLabel("");
 		lblPassConfirm.setFont(new Font("굴림", Font.BOLD, 20));
 		lblPassConfirm.setForeground(Color.RED);
 		lblPassConfirm.setHorizontalAlignment(SwingConstants.CENTER);
@@ -174,7 +175,7 @@ public class EmployeeDatailPanel extends AbstractContentPanel<EmployeeDetail> im
 		if (item.isGender()) {
 			rdbtnFemale.setSelected(true);
 		}else {
-			rdbtnMale.setSelected(false);
+			rdbtnMale.setSelected(true);
 		}
 	}
 
@@ -191,16 +192,16 @@ public class EmployeeDatailPanel extends AbstractContentPanel<EmployeeDetail> im
 
 	private byte[] getImage() {
 		try(ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
-			ImageIcon icon = (ImageIcon) lblPic.getIcon();
-			BufferedImage bi = new BufferedImage(icon.getIconWidth(), icon.getIconHeight(), BufferedImage.TYPE_INT_RGB);
+				ImageIcon icon = (ImageIcon) lblPic.getIcon();
+				BufferedImage bi = new BufferedImage(icon.getIconWidth(), icon.getIconHeight(), BufferedImage.TYPE_INT_RGB);
 			
-			//icon -> image로 만듬
-			Graphics2D g2 = bi.createGraphics();
-			g2.drawImage(icon.getImage(), 0, 0, null);
-			g2.dispose();
+				//icon -> image로 만듬
+				Graphics2D g2 = bi.createGraphics();
+				g2.drawImage(icon.getImage(), 0, 0, null);
+				g2.dispose();
 			
-			ImageIO.write(bi, "png", baos);
-			return baos.toByteArray();
+				ImageIO.write(bi, "png", baos);
+				return baos.toByteArray();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -233,7 +234,7 @@ public class EmployeeDatailPanel extends AbstractContentPanel<EmployeeDetail> im
 	protected void actionPerformedBtnAddPic(ActionEvent e) {
 		FileNameExtensionFilter filter = new FileNameExtensionFilter(
 				"JPG & PNG & GIF images",
-				"jpg", "png", "gid");
+				"jpg", "png", "gif");
 		
 		chooser.setFileFilter(filter);
 		chooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
