@@ -119,7 +119,7 @@ UPDATE erp.emp_detail
 SET pic = ?, gender = ?, hiredate = ?, pass = ?
 WHERE empno = ?;
 
-select * from emp_detail;
+select empno, pic, gender, hiredate, pass from emp_detail;
 select * from employee;
 
 
