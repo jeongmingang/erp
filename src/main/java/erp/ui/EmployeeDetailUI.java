@@ -53,18 +53,12 @@ public class EmployeeDetailUI extends JFrame implements ActionListener {
 			pBtns.add(btnCancel);
 			
 			if (isBtns) {
-				btnAdd.setText("수정");
-				btnCancel.setText("삭제");
+					btnAdd.setText("수정");
+					btnCancel.setText("삭제");
 			}else {
-			contentPane.add(pBtns, BorderLayout.SOUTH);
-//			btnUpdate = new JButton("수정");
-//			btnUpdate.addActionListener(this);
-//			pBtns.add(btnUpdate);
-//			
-//			btnDel = new JButton("삭제");
-//			btnDel.addActionListener(this);
-//			pBtns.add(btnDel);
-		}
+					btnAdd.setText("수정");
+					btnCancel.setText("삭제");
+			}
 	}
 	
 	public void setEmpNo(Employee empNo) {
