@@ -73,7 +73,7 @@ public class EmployeeDetailDaoTest {
 		Calendar cal = GregorianCalendar.getInstance();
 		cal.getTime();
 		
-		EmployeeDetail newEmpDetail = new EmployeeDetail(1003, false, cal.getTime(), "1234", getImage("태연1.jpg"));
+		EmployeeDetail newEmpDetail = new EmployeeDetail(1003, false, cal.getTime(), "1234", getImage("태연.jpg"));
 		int res = dao.updateEmployeeDetail(newEmpDetail);
 		
 		Assert.assertEquals(1, res);
@@ -81,7 +81,7 @@ public class EmployeeDetailDaoTest {
 		System.out.println(dao.selectEmployeeDetailByNo(new Employee(1003)));
 	}
 
-	@Test
+//	@Test
 	public void test04DeleteEmployeeDetail() {
 		System.out.printf("%s()%n", "test04DeleteEmployeeDetail");
 		Employee employee = new Employee(1003);

@@ -12,7 +12,6 @@ import erp.dao.impl.EmployeeDetailDaoImpl;
 import erp.dao.impl.TitleDaoImpl;
 import erp.dto.Department;
 import erp.dto.Employee;
-import erp.dto.EmployeeDetail;
 import erp.dto.Title;
 
 public class EmployeeService {
@@ -47,10 +46,6 @@ public class EmployeeService {
 	
 	public void addEmployee (Employee employee) {
 		empDao.insertEmployee(employee);
-	}
-	
-	public EmployeeDetail showEmpDetailByEmpNo(Employee employee) {
-		return empDetailDao.selectEmployeeDetailByNo(employee);
 	}
 
 }

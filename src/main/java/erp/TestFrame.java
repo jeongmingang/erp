@@ -4,19 +4,29 @@ import java.awt.EventQueue;
 
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import erp.dto.Employee;
+import erp.dto.EmployeeDetail;
+import erp.service.EmployeeDetailService;
 import erp.service.EmployeeService;
 import erp.ui.content.EmployeeDatailPanel;
 import erp.ui.list.EmployeeTablePanel;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 @SuppressWarnings("serial")
-public class TestFrame extends JFrame{
+public class TestFrame extends JFrame implements ActionListener{
 	
 	private JPanel contentPane;
 	private EmployeeTablePanel pList;
 	private EmployeeDatailPanel panel;
+	private JPanel panel_1;
+	private JButton btnGet;
+	private JButton btnSet;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -37,7 +47,7 @@ public class TestFrame extends JFrame{
 	
 	private void initialize() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 528, 586);
+		setBounds(100, 100, 503, 658);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -51,8 +61,38 @@ public class TestFrame extends JFrame{
 		contentPane.add(pList);
 		
 		panel = new EmployeeDatailPanel();
+		panel.setTfEmpno(new Employee(1003));
 		contentPane.add(panel);
+		
+		panel_1 = new JPanel();
+		contentPane.add(panel_1);
+		
+		btnGet = new JButton("가져오기");
+		btnGet.addActionListener(this);
+		panel_1.add(btnGet);
+		
+		btnSet = new JButton("불러오기");
+		btnSet.addActionListener(this);
+		panel_1.add(btnSet);
 	}
 
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnSet) {
+			actionPerformedBtnSet(e);
+		}
+		if (e.getSource() == btnGet) {
+			actionPerformedBtnGet(e);
+		}
+	}
+	protected void actionPerformedBtnGet(ActionEvent e) {
+		EmployeeDetail employeeDetail = panel.getItem();
+		JOptionPane.showMessageDialog(null, employeeDetail);
+	}
+	
+	protected void actionPerformedBtnSet(ActionEvent e) {
+		EmployeeDetailService service = new EmployeeDetailService();
+		EmployeeDetail empDetail = service.selectEmployeeDetailByEmpNo(new Employee(1003));
+		panel.setItem(empDetail);
+	}
 }
 
