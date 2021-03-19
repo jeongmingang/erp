@@ -8,6 +8,8 @@ import erp.ui.exception.NotSelectedException;
 
 @SuppressWarnings("serial")
 public class EmployeeTablePanel extends AbstractCustomTablePanel<Employee> {
+	public EmployeeTablePanel() {
+	}
 	private EmployeeService service;
 
 	@Override
